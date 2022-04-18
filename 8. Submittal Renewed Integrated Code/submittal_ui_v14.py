@@ -15,7 +15,6 @@ from combine_individual_spec_preprocessing import create_individual_spec_data_di
 import logging
 import warnings
 warnings.filterwarnings("ignore")
-import json
 
 
 # Custom Log Message 
@@ -49,12 +48,13 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+# Constants UI Elements
 path = resource_path("cloud.png")
 img = PhotoImage(file = path, master= root)
 img_label = Label(root, image = img)
 img_label.place(x = 0, y = 0)
 
-
+# Global Paths
 s_filepath_folder = ""
 s_filepath_spec_pdf = ""
 d_filepath_folder = ""
@@ -66,7 +66,6 @@ def s_open_folder_file():
 
     s_filepath_folder = filedialog.askdirectory()
     if(s_filepath_folder):
-        # messagebox.showinfo('Information','File Selected')
         source_folder_button.configure(bg = 'light green')
     else:
         messagebox.showwarning('Warning','Source Folder Not Selected')
@@ -80,7 +79,6 @@ def s_open_file():
     file = filedialog.askopenfile(mode='r', filetypes=[('PDF Files', '*.pdf')])
     if file:
         s_filepath_spec_pdf = os.path.abspath(file.name)
-        # messagebox.showinfo('Information','File Selected')
         source_button.configure(bg = 'light green')
     else:
         messagebox.showwarning('Warning','File Not Selected')
@@ -93,7 +91,6 @@ def d_open_file():
 
     d_filepath_folder = filedialog.askdirectory()
     if(d_filepath_folder):
-        # messagebox.showinfo('Information','Destination Selected')
         destination_button.configure(bg='light green')
     else:
         messagebox.showwarning('Warning','Destination Folder Not Selected')
@@ -112,11 +109,12 @@ menu = OptionMenu(root, variable, *OPTIONS)
 menu.place(x = 50, y = 8)
 menu.config(width = 20)
 
-# Create a Button - Take Source File PDF File
+# Create a Button - 
+# Take Source File PDF File
 source_button = Button(root, text="Source File", command = s_open_file)
-# Create a Button - Take Source Files Folder
+# Take Source Files Folder
 source_folder_button = Button(root, text="Source Folder", command = s_open_folder_file)
-# Create a Button - Select Destination Path
+# Select Destination Path
 destination_button = Button(root, text="Destination Folder", command = d_open_file)
 
 source_button.place(x = 70, y = 80)
@@ -124,9 +122,10 @@ source_button.config(width = 15)
 destination_button.place(x = 70, y = 120)
 destination_button.config(width = 15)
 
+# Check and Use Dynamic Value of Dropdown
 def callback(*args):
     if(variable.get() == "Combine Spec"):
-        source_folder_button.place_forget() # Renove Source Folder 
+        source_folder_button.place_forget() # Remove Source Folder 
         source_button.config(width = 15)
         source_button.place(x = 70, y = 80)
 
@@ -137,15 +136,16 @@ def callback(*args):
         source_folder_button.config(width = 15)
         source_folder_button.place(x = 70, y = 80)
 
-        # Create a Button - Select Destination Path
         destination_button.config(width = 15)
         destination_button.place(x = 70, y = 120)
 
 variable.trace("w", callback)
 
 
+# Function
+# Perform All Operations After 'Action' Click
 def submittal_automation():
-    # For combine spec
+    # For Combine Spec
     if(variable.get() == "Combine Spec"):
         if(s_filepath_spec_pdf and d_filepath_folder):
             big_spec_name = pathlib.Path(s_filepath_spec_pdf).stem
@@ -154,24 +154,25 @@ def submittal_automation():
                 big_spec_name = pathlib.Path(s_filepath_spec_pdf).stem
                 logger.info("{} | Spec Processing Start".format(big_spec_name))
 
+                # Function Call - Combine PDF Spec to Txt with Dynamic Header Footer Removal
                 combine_spec_data_to_txt(s_filepath_spec_pdf)
+                # Function Call - Create Mapped Dictionary with Individual Spec with Repective Data
                 individual_specification = create_individual_spec_data_dict()
             
-                with open("Raw_text_ind.json", "w") as filee:
-                    json.dump(individual_specification, filee)
-
+                # Part Validation Check
                 for ind_section_name, pre_data in individual_specification.items():
                     if(len(re.findall("PART\s?[1-3]", pre_data))):
                         part_flag = True
                     else:
                         part_flag = False
 
+                    # Function Call - Submittal Mapping to CSV
                     submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_name, d_filepath_folder)
                 
                 # Function Call - Convert Into Production Format 
                 convert_to_production_format(d_filepath_folder + "/" + big_spec_name + "/", big_spec_name)
 
-                # Function Call - Prediction
+                # Function Call - Prediction on Production Format
                 prediction_model(big_spec_name, d_filepath_folder + "/" + big_spec_name + "/")
                 
                 messagebox.showinfo("Status", "Process Completed ")
@@ -183,24 +184,29 @@ def submittal_automation():
         else:
             messagebox.showwarning('Warning','Please Select Source PDF File and Destination Folder.')
     else:
+        # Fpr Indvidual Specs Folder
         if(s_filepath_folder and d_filepath_folder):
             big_spec_name = pathlib.PurePath(s_filepath_folder).name
             if(len(d_filepath_folder + "/" + big_spec_name + "/" + big_spec_name + ".csv") < 259):
                 logger.info("{} | Individual Spec Folder Processing Start".format(big_spec_name))
-                logging.shutdown()
 
                 for root, dirs, files in os.walk(s_filepath_folder):
                     if(str(file).endswith(".pdf")):
                         i_file_path = os.path.join(root, file)
+                        
+                        # Function Call - Individual Spec PDF to Txt
                         combine_spec_data_to_txt(i_file_path)
+                        # Function Call - Indidual Spec Mapped into Dictionary
                         individual_specification = create_individual_spec_data_dict()
                         
+                        # Part Validation For Each Indidual Spec
                         for ind_section_name, pre_data in individual_specification.items():
                             if(len(re.findall("PART\s?[1-3]", pre_data))):
                                 part_flag = True
                             else:
                                 part_flag = False
 
+                            # Function Call - Submittal Extraction and Mapping into CSV
                             submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_name, d_filepath_folder)            
                 
                 # Function Call - Convert Into Production Format 
@@ -226,8 +232,9 @@ signature = Label(root, text = "vConstruct-DPR")
 signature.place(x = 85, y = 220)
 
 # Version Label
-version = Label(root, text = "v 1.0.0")
+version = Label(root, text = "v 2.0.0")
 version.place(x = 215, y = 242)
 
 
+# Tkinter Loop
 root.mainloop()

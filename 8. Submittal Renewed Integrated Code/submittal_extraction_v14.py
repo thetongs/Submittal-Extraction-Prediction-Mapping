@@ -276,10 +276,7 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
 
                 # Keep Preceeding Zero
                 mapp_dataset.SECTION = mapp_dataset.SECTION.apply('="{}"'.format)
-                # Store path
-                # if(len(big_spec_name + ".csv") > 259):
-                #     big_spec_name = big_spec_name[0:250] 
-
+                
                 store_path = d_filepath_folder + "/" + big_spec_name + "/" + big_spec_name + ".csv"
 
                 if(os.path.exists(store_path)):
@@ -287,24 +284,9 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
                     dataset = dataset.append(mapp_dataset)
                     dataset.to_csv(store_path, index = False)
                 else:
-                    # folder = Path(d_filepath_folder + "/" + big_spec_name )
-                    # folder.mkdir(parents = True, exist_ok = True)
                     os.mkdir(d_filepath_folder + "/" + big_spec_name + "/")
                     mapp_dataset.to_csv(store_path, index = False)
-                # # big_spec_name = big_spec_name + ".csv"
-                # file_status = path.exists(d_filepath_folder + "/" + big_spec_name)
-
-                # if(file_status):
-                #     dataset = pd.read_csv(d_filepath_folder + "/" +big_spec_name)
-                #     dataset = dataset.append(mapp_dataset)
-                #     dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-                # else:
-                #     mapp_dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-
-                # Function Call - Convert Generated Data into Uniform Format
-                # convert_to_production_format(d_filepath_folder, big_spec_name)
                 
-                # prediction_model(big_spec_name, d_filepath_folder)
                 logger.info("{} | Success ".format(ind_section_name))
 
             # If Headings Not Present
@@ -315,20 +297,6 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
                 mapp_dataset.loc[len(mapp_dataset)] = [spec_number, spec_name, "Not Found", "Not Found", "Not Found", "Not Found"]
                 mapp_dataset.SECTION = mapp_dataset.SECTION.apply('="{}"'.format)
 
-                # big_spec_name = big_spec_name + ".csv"
-                # file_status = path.exists(d_filepath_folder + "/" +  big_spec_name)
-
-                # if(file_status):
-                #     dataset = pd.read_csv(d_filepath_folder + "/" + big_spec_name)
-                #     dataset = dataset.append(mapp_dataset)
-                #     dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-                # else:
-                #     mapp_dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-
-                # Store path
-                # if(len(big_spec_name + ".csv") > 259):
-                #     big_spec_name = big_spec_name[0:250] 
-
                 store_path = d_filepath_folder + "/" + big_spec_name + "/" + big_spec_name + ".csv"
 
                 if(os.path.exists(store_path)):
@@ -336,16 +304,8 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
                     dataset = dataset.append(mapp_dataset)
                     dataset.to_csv(store_path, index = False)
                 else:
-                    # folder = Path(d_filepath_folder + "/" + big_spec_name )
-                    # folder.mkdir(parents = True, exist_ok = True)
                     os.mkdir(d_filepath_folder + "/" + big_spec_name + "/")
                     mapp_dataset.to_csv(store_path, index = False)
-
-
-                # Function Call - Convert Generated Data into Uniform Format
-                # convert_to_production_format(d_filepath_folder, big_spec_name)
-                
-                # prediction_model(big_spec_name, d_filepath_folder)
 
         # If Not Then Generate Empty Record with Section Number
         else:
@@ -356,20 +316,6 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
             mapp_dataset.loc[len(mapp_dataset)] = [spec_number, "Not Found", "Not Found", "Not Found", "Not Found", "Not Found"]
             mapp_dataset.SECTION = mapp_dataset.SECTION.apply('="{}"'.format)
 
-            # big_spec_name = big_spec_name + ".csv"
-            # file_status = path.exists(d_filepath_folder + "/" + big_spec_name)
-
-            # if(file_status):
-            #     dataset = pd.read_csv(d_filepath_folder + "/" + big_spec_name)
-            #     dataset = dataset.append(mapp_dataset)
-            #     dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-            # else:
-            #     mapp_dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-
-            # Store path
-            # if(len(big_spec_name + ".csv") > 259):
-            #     big_spec_name = big_spec_name[0:250] 
-
             store_path = d_filepath_folder + "/" + big_spec_name + "/" + big_spec_name + ".csv"
 
             if(os.path.exists(store_path)):
@@ -377,17 +323,9 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
                 dataset = dataset.append(mapp_dataset)
                 dataset.to_csv(store_path, index = False)
             else:
-                # folder = Path(d_filepath_folder + "/" + big_spec_name )
-                # folder.mkdir(parents = True, exist_ok = True)
                 os.mkdir(d_filepath_folder + "/" + big_spec_name + "/")
                 mapp_dataset.to_csv(store_path, index = False)
-
-            # Function Call - Convert Generated Data into Uniform Format
-            # convert_to_production_format(d_filepath_folder, big_spec_name)
-
-            # Function Call - Prediction Model 
-            # prediction_model(big_spec_name, d_filepath_folder)   
-            
+    
     # If Not Then Create Empty Record
     else:
         logger.info("{} | Failed | Part Validation Failed".format(ind_section_name))
@@ -397,16 +335,6 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
         mapp_dataset.loc[len(mapp_dataset)] = [spec_number, "Not Found", "Not Found", "Not Found", "Not Found", "Not Found"]
         mapp_dataset.SECTION = mapp_dataset.SECTION.apply('="{}"'.format)
 
-        # big_spec_name = big_spec_name + ".csv"
-        # file_status = path.exists(d_filepath_folder + "/" + big_spec_name)
-
-        # if(file_status):
-        #     dataset = pd.read_csv(d_filepath_folder + "/" + big_spec_name)
-        #     dataset = dataset.append(mapp_dataset)
-        #     dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-        # else:
-        #     mapp_dataset.to_csv(d_filepath_folder + "/" + big_spec_name, index = False)
-
         # Store path
         store_path = d_filepath_folder + "/" + big_spec_name + "/" + big_spec_name + ".csv"
 
@@ -415,13 +343,5 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
             dataset = dataset.append(mapp_dataset)
             dataset.to_csv(store_path, index = False)
         else:
-            # folder = Path(d_filepath_folder + "/" + big_spec_name )
-            # folder.mkdir(parents = True, exist_ok = True)
             os.mkdir(d_filepath_folder + "/" + big_spec_name + "/")
             mapp_dataset.to_csv(store_path, index = False)
-
-        # Function Call - Convert Generated Data into Uniform Format
-        # convert_to_production_format(d_filepath_folder, big_spec_name)
-
-        # Function Call - Prediction Model 
-        # prediction_model(big_spec_name, d_filepath_folder)

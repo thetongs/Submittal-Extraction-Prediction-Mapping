@@ -15,7 +15,6 @@ def combine_spec_data_to_txt(path):
         for pdf_page, page in enumerate(doc):
             page_data = ""
             text_instances = []
-            # file.write("\n" + "PAGE : " + str(pdf_page) + "\n")
 
             # Check each format of PART 1 GENERAL
             # and Create Rect List
