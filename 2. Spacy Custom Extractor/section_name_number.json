@@ -1,0 +1,366 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "SECTION 00 3100  AVAILABLE PROJECT INFORMATION  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 46,
+            "value": "AVAILABLE PROJECT INFORMATION",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 01 10 00 - SUMMARY ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 19,
+            "end": 26,
+            "value": "SUMMARY",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 01 1000  SUMMARY ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "SUMMARY",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 00 72 00 - GENERAL CONDITIONS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 20,
+            "end": 38,
+            "value": "GENERAL CONDITIONS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 224700 DRINKING FOUNTAINS AND WATER COOLERS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 51,
+            "value": "DRINKING FOUNTAINS AND WATER COOLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 230910  DUCTWORK ACCESSORIES ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 36,
+            "value": "DUCTWORK ACCESSORIES",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 27 05 29 HANGERS AND SUPPORTS FOR COMMUNICATIONS SYSTEMS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 64,
+            "value": "HANGERS AND SUPPORTS FOR COMMUNICATIONS SYSTEMS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 262923 VARIABLE-FREQUENCY MOTOR CONTROLLERS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 51,
+            "value": "VARIABLE-FREQUENCY MOTOR CONTROLLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 27 05 33 CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 77,
+            "value": "CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 27 05 33 CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS WSP B2115173.000",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 77,
+            "value": "CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 230910  DUCTWORK ACCESSORIES   1 ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 36,
+            "value": "DUCTWORK ACCESSORIES",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 00 3100  AVAILABLE PROJECT INFORMATION  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 18,
+            "end": 48,
+            "value": "AVAILABLE PROJECT INFORMATION ",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 01 10 00 - SUMMARY ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 20,
+            "end": 28,
+            "value": "SUMMARY ",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 01 1000  SUMMARY ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 18,
+            "end": 25,
+            "value": "SUMMARY",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 224700 DRINKING FOUNTAINS AND WATER COOLERS",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 52,
+            "value": "DRINKING FOUNTAINS AND WATER COOLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 230910  DUCTWORK ACCESSORIES ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 37,
+            "value": "DUCTWORK ACCESSORIES ",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 27 05 33 CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS WSP B2115173.000",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 18,
+            "end": 78,
+            "value": "CONDUITS, PULLBOXES AND BACKBOXES FOR COMMUNICATIONS SYSTEMS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 262923 VARIABLE-FREQUENCY MOTOR CONTROLLERS 1 2 3",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 51,
+            "value": "VARIABLE-FREQUENCY MOTOR CONTROLLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 262923 VARIABLE-FREQUENCY MOTOR CONTROLLERS 1 2 3",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 52,
+            "value": "VARIABLE-FREQUENCY MOTOR CONTROLLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 00 3100  AVAILABLE PROJECT INFORMATION  1 2 3",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 17,
+            "end": 46,
+            "value": "AVAILABLE PROJECT INFORMATION",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 262923 VARIABLE-FREQUENCY MOTOR CONTROLLERS PART 1 - GENERAL",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 52,
+            "value": "VARIABLE-FREQUENCY MOTOR CONTROLLERS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 011000 SUMMARY OF WORK  PART 1. - GENERAL  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 30,
+            "value": "SUMMARY OF WORK",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 011000 SUMMARY OF WORK  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 31,
+            "value": "SUMMARY OF WORK ",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "DOCUMENT 011222 SUMMARY OF WORK  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 16,
+            "end": 31,
+            "value": "SUMMARY OF WORK",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 011000 SUMMARY OF WORK  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 30,
+            "value": "SUMMARY OF WORK",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 012100 ALLOWANCES",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 25,
+            "value": "ALLOWANCES",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 210900 WET FIRE PROTECTION SYSTEMS   INDEX PAGE  ",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 42,
+            "value": "WET FIRE PROTECTION SYSTEMS",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 011000 SUMMARY OF WORK",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 30,
+            "value": "SUMMARY OF WORK",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 013100 PROJECT MANAGEMENT AND COORDINATION  PART 1 - GENERAL",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 50,
+            "value": "PROJECT MANAGEMENT AND COORDINATION",
+            "entity": "section_name"
+          }
+        ]
+      },
+      {
+        "text": "SECTION 220411 WATER DISTRIBUTION SPECIALTIES  INDEX PAGE",
+        "intent": "section_details",
+        "entities": [
+          {
+            "start": 15,
+            "end": 45,
+            "value": "WATER DISTRIBUTION SPECIALTIES",
+            "entity": "section_name"
+          }
+        ]
+      }
+    ]
+  }
+}
