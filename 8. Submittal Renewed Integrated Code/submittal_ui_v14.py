@@ -161,7 +161,11 @@ def submittal_automation():
             
                 # Part Validation Check
                 for ind_section_name, pre_data in individual_specification.items():
-                    if(len(re.findall("PART\s?[1-3]", pre_data))):
+                    
+                    # print(re.findall("PART\s?[1-3]", pre_data))
+                    # print(len(re.findall("PART\s?[1-3]", pre_data)))
+
+                    if(re.findall("PART\s?1", pre_data)):
                         part_flag = True
                     else:
                         part_flag = False

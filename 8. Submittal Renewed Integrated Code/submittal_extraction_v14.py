@@ -100,6 +100,7 @@ def submital_extraction_mapping(pre_data, part_flag, ind_section_name, big_spec_
     # Whether we need to process given individual spec ? 
     # True - Section/Document and End of Section/Document present in individual spec
     # False - Section/Document and End of Section/Document not present in individual spec
+    
     if(part_flag):
 
         # Remove Extra Spaces
